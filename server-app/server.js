@@ -19,9 +19,13 @@ app.get("/*", (req, res) => {
     params: req.query,
   };
 
+  // console.log(obj)
+
   io.emit("page-request", obj);
   clientResponseRef = res;
 });
+
+
 
 app.post("/*", (req, res) => {
   const pathname = url.parse(req.host).pathname;
@@ -36,10 +40,13 @@ app.post("/*", (req, res) => {
   clientResponseRef = res;
 });
 
+
+
+
 io.on("connection", (socket) => {
   console.log("info: a node connected");
   socket.on("page-response", (response) => {
-    clientResponseRef.send(response);
+    clientResponseRef.send(response.text);
   });
 });
 
