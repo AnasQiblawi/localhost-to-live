@@ -39,7 +39,7 @@ function executeGet(url, params) {
         console.log(err);
         return;
       }
-      socket.emit("page-response".response);
+      socket.emit("page-response",response);
     });
 }
 
@@ -52,6 +52,6 @@ function executePost(url, params) {
         console.log(err);
         return;
       }
-      socket.emit("page-response".response);
+      socket.emit("page-response",response);
     });
 }
