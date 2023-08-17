@@ -17,7 +17,7 @@ socket.on("page-request", function (data) {
   const method = data.method;
   const params = data.params;
 
-  const localhostUrl = hostToLive + path;
+  const localhostUrl = hostToLive //+ path;
 
   switch (method) {
     case "get":
